@@ -2,29 +2,23 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GasModelWin.Models;
 
-namespace GasModelWin
+namespace GasModelWin.Forms
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        private GasContext context;
+        private readonly LoginForm _loginForm;
 
-        public Form1()
+        public MainForm(LoginForm loginForm)
         {
             InitializeComponent();
-            Database.SetInitializer(new GasContextInitializer());
-            using (context = new GasContext())
-            {
-                var users = context.Users;
-                MessageBox.Show(users.Count().ToString());
-            }
+            _loginForm = loginForm;
+            Closed += (sender, args) => _loginForm.Close();
         }
     }
 }

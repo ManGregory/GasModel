@@ -24,7 +24,6 @@ namespace GasModelWin.Models
 
         [Required]
         public int UserId { get; set; }
-        [Required]
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
     }
