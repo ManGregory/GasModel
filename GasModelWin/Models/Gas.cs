@@ -17,5 +17,10 @@ namespace GasModelWin.Models
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}", Name);
+        }
     }
 }

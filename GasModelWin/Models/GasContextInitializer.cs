@@ -22,6 +22,17 @@ namespace GasModelWin.Models
                 new UserLogins {Login = "admin", Password = "admin", UserId = 1},
                 new UserLogins {Login = "user", Password = "user", UserId = 2}
             });
+
+            context.Gases.AddRange(new[]
+            {
+                new Gas {Id = 1, Name = "CO2"},
+                new Gas {Id = 2, Name = "Сухой воздух"}
+            });
+            /*context.AdiabaticConstants.AddRange(new[]
+            {
+                new AdiabaticConstant {GasId = 1,}
+            });*/
+            context.SaveChanges();
         }
     }
 }

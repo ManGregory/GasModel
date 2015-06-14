@@ -45,5 +45,15 @@ namespace GasModelWin.Models
 
         [Required]
         public decimal ModelingResult { get; set; }
+
+        public const decimal R = 8.3144621m;
+
+        public static decimal Calc(Result result, decimal cp, decimal a, decimal b,
+            decimal p1, decimal p2)
+        {
+            return result.ModelingType == 1
+                ? ((R*result.GasTemperature*(b/(result.GasVolume - b))) - ((2*a)/result.GasVolume))/(cp + R)
+                : (((p2 - p1)*((2*a)/(R*result.GasTemperature)) - b)/cp);
+        }
     }
 }
