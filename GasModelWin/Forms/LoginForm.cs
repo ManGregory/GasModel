@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,24 @@ namespace GasModelWin.Forms
             InitializeComponent();
             Database.SetInitializer(new GasContextInitializer());
         }
+
+        /*private string GetTemperature()
+        {
+            var sb = new StringBuilder();                      
+            sb.Append("context.GasTemperatures.AddRange(new[]{");
+            var lines = File.ReadAllLines("1.txt");
+            foreach (var line in lines)
+            {
+                var elems = line.Split(new[] {" ", "\t"}, StringSplitOptions.RemoveEmptyEntries);
+                if (elems.Length >= 3)
+                {
+                    sb.AppendFormat("new GasTemperature {{GasId = {0}, Cp = {1}m, Temperature = {2}}}, ", elems[0],
+                        elems[2].Replace(",", "."), elems[1]);
+                }
+            }
+            sb.Append("});");
+            return sb.ToString();
+        }*/
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
