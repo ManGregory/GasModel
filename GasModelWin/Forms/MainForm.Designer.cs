@@ -126,6 +126,7 @@
             this.miAbout.Name = "miAbout";
             this.miAbout.Size = new System.Drawing.Size(94, 20);
             this.miAbout.Text = "О программе";
+            this.miAbout.Click += new System.EventHandler(this.miAbout_Click);
             // 
             // miExit
             // 

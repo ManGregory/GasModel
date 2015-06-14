@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GasModelWin")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("ИС \"Истечение газа\"")]
+[assembly: AssemblyDescription("Программный комплекс предназначен для моделирования процесса истечения газа из газопроводов под действием эффекта Джоуля-Томпсона с заданными параметрами, расчета конечных значений требуемых величин, представления результата в числовом и графическом видах.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GasModelWin")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyProduct("ИС \"Истечение газа\"")]
+[assembly: AssemblyCopyright("©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

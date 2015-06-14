@@ -45,5 +45,13 @@ namespace GasModelWin.Forms
             txtP1.Enabled = txtP2.Enabled = rbIntegr.Checked;
             txtGasVolume.Enabled = rbDiff.Checked;
         }
+
+        private void miAbout_Click(object sender, EventArgs e)
+        {
+            using (var aboutForm = new AboutForm())
+            {
+                aboutForm.ShowDialog();
+            }
+        }
     }
 }
