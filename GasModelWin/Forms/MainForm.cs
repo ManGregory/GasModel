@@ -154,5 +154,13 @@ namespace GasModelWin.Forms
                 }
             }
         }
+
+        private void miWorkHistory_Click(object sender, EventArgs e)
+        {
+            using (var workHistoryForm = new WorkHistoryForm())
+            {
+                workHistoryForm.ShowDialog(this);
+            }
+        }
     }
 }

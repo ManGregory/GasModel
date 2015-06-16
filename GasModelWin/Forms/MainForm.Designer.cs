@@ -118,6 +118,7 @@
             this.miWorkHistory.Name = "miWorkHistory";
             this.miWorkHistory.Size = new System.Drawing.Size(165, 22);
             this.miWorkHistory.Text = "История работы";
+            this.miWorkHistory.Click += new System.EventHandler(this.miWorkHistory_Click);
             // 
             // miDoc
             // 
