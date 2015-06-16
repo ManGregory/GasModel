@@ -30,7 +30,6 @@ namespace GasModelWin.Models
 
         [Required]
         public int GasId { get; set; }
-        [Required]
         [ForeignKey("GasId")]
         public virtual Gas Gas { get; set; }
 
@@ -49,10 +48,10 @@ namespace GasModelWin.Models
         public const decimal R = 8.3144621m;
 
         public static decimal Calc(Result result, decimal cp, decimal a, decimal b,
-            decimal p1, decimal p2)
+            decimal p1, decimal p2, decimal k)
         {
             return result.ModelingType == 1
-                ? ((R*result.GasTemperature*(b/(result.GasVolume - b))) - ((2*a)/result.GasVolume))/(cp + R)
+                ? ((R*result.GasTemperature*(b/(result.GasVolume - b))) - ((2*a)/result.GasVolume))/((cp/k) + R)
                 : (((p2 - p1)*((2*a)/(R*result.GasTemperature)) - b)/cp);
         }
     }

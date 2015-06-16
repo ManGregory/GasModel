@@ -43,12 +43,8 @@
             this.cmbGasType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTemperature = new System.Windows.Forms.TextBox();
-            this.txtGasVolume = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtP1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtP2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtGasType = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,22 +52,26 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtTemperatureResult = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtAdiabatic = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtBCoeff = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtACoeff = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCp = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtResultP1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtResultP2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtResult = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.btnCalc = new System.Windows.Forms.Button();
+            this.edTemperature = new System.Windows.Forms.NumericUpDown();
+            this.txtGasVolume = new System.Windows.Forms.NumericUpDown();
+            this.txtP2 = new System.Windows.Forms.NumericUpDown();
+            this.txtP1 = new System.Windows.Forms.NumericUpDown();
+            this.txtACoeff = new System.Windows.Forms.NumericUpDown();
+            this.txtBCoeff = new System.Windows.Forms.NumericUpDown();
+            this.txtCp = new System.Windows.Forms.NumericUpDown();
+            this.txtResultP1 = new System.Windows.Forms.NumericUpDown();
+            this.txtResultP2 = new System.Windows.Forms.NumericUpDown();
+            this.txtResult = new System.Windows.Forms.TextBox();
+            this.txtAdiabatic = new System.Windows.Forms.NumericUpDown();
             this.msMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -79,6 +79,16 @@
             this.splitContainer1.SuspendLayout();
             this.grpInput.SuspendLayout();
             this.grpOutput.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edTemperature)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGasVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtACoeff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBCoeff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtResultP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtResultP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAdiabatic)).BeginInit();
             this.SuspendLayout();
             // 
             // msMain
@@ -133,6 +143,7 @@
             this.miExit.Name = "miExit";
             this.miExit.Size = new System.Drawing.Size(53, 20);
             this.miExit.Text = "Выход";
+            this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
             // splitContainer1
             // 
@@ -153,14 +164,14 @@
             // 
             // grpInput
             // 
-            this.grpInput.Controls.Add(this.btnCalc);
-            this.grpInput.Controls.Add(this.txtP2);
-            this.grpInput.Controls.Add(this.label5);
             this.grpInput.Controls.Add(this.txtP1);
-            this.grpInput.Controls.Add(this.label4);
+            this.grpInput.Controls.Add(this.txtP2);
             this.grpInput.Controls.Add(this.txtGasVolume);
+            this.grpInput.Controls.Add(this.edTemperature);
+            this.grpInput.Controls.Add(this.btnCalc);
+            this.grpInput.Controls.Add(this.label5);
+            this.grpInput.Controls.Add(this.label4);
             this.grpInput.Controls.Add(this.label3);
-            this.grpInput.Controls.Add(this.txtTemperature);
             this.grpInput.Controls.Add(this.label2);
             this.grpInput.Controls.Add(this.label1);
             this.grpInput.Controls.Add(this.cmbGasType);
@@ -176,20 +187,20 @@
             // 
             // grpOutput
             // 
+            this.grpOutput.Controls.Add(this.txtAdiabatic);
+            this.grpOutput.Controls.Add(this.txtResultP2);
+            this.grpOutput.Controls.Add(this.txtResultP1);
+            this.grpOutput.Controls.Add(this.txtCp);
+            this.grpOutput.Controls.Add(this.txtBCoeff);
+            this.grpOutput.Controls.Add(this.txtACoeff);
             this.grpOutput.Controls.Add(this.label16);
             this.grpOutput.Controls.Add(this.txtResult);
             this.grpOutput.Controls.Add(this.label15);
-            this.grpOutput.Controls.Add(this.txtResultP2);
             this.grpOutput.Controls.Add(this.label14);
-            this.grpOutput.Controls.Add(this.txtResultP1);
             this.grpOutput.Controls.Add(this.label13);
-            this.grpOutput.Controls.Add(this.txtCp);
             this.grpOutput.Controls.Add(this.label12);
-            this.grpOutput.Controls.Add(this.txtACoeff);
             this.grpOutput.Controls.Add(this.label11);
-            this.grpOutput.Controls.Add(this.txtBCoeff);
             this.grpOutput.Controls.Add(this.label10);
-            this.grpOutput.Controls.Add(this.txtAdiabatic);
             this.grpOutput.Controls.Add(this.label9);
             this.grpOutput.Controls.Add(this.txtTemperatureResult);
             this.grpOutput.Controls.Add(this.label8);
@@ -231,7 +242,7 @@
             // cmbGasType
             // 
             this.cmbGasType.FormattingEnabled = true;
-            this.cmbGasType.Location = new System.Drawing.Point(12, 76);
+            this.cmbGasType.Location = new System.Drawing.Point(14, 76);
             this.cmbGasType.Name = "cmbGasType";
             this.cmbGasType.Size = new System.Drawing.Size(277, 22);
             this.cmbGasType.TabIndex = 2;
@@ -254,20 +265,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Температура газа от -73С до +73С";
             // 
-            // txtTemperature
-            // 
-            this.txtTemperature.Location = new System.Drawing.Point(12, 133);
-            this.txtTemperature.Name = "txtTemperature";
-            this.txtTemperature.Size = new System.Drawing.Size(277, 22);
-            this.txtTemperature.TabIndex = 5;
-            // 
-            // txtGasVolume
-            // 
-            this.txtGasVolume.Location = new System.Drawing.Point(12, 191);
-            this.txtGasVolume.Name = "txtGasVolume";
-            this.txtGasVolume.Size = new System.Drawing.Size(277, 22);
-            this.txtGasVolume.TabIndex = 7;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -277,13 +274,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Объем истекающего газа";
             // 
-            // txtP1
-            // 
-            this.txtP1.Location = new System.Drawing.Point(12, 247);
-            this.txtP1.Name = "txtP1";
-            this.txtP1.Size = new System.Drawing.Size(277, 22);
-            this.txtP1.TabIndex = 9;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -292,13 +282,6 @@
             this.label4.Size = new System.Drawing.Size(135, 14);
             this.label4.TabIndex = 8;
             this.label4.Text = "Давление в среде №1";
-            // 
-            // txtP2
-            // 
-            this.txtP2.Location = new System.Drawing.Point(12, 308);
-            this.txtP2.Name = "txtP2";
-            this.txtP2.Size = new System.Drawing.Size(277, 22);
-            this.txtP2.TabIndex = 11;
             // 
             // label5
             // 
@@ -360,14 +343,6 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Температура газа =";
             // 
-            // txtAdiabatic
-            // 
-            this.txtAdiabatic.Location = new System.Drawing.Point(170, 127);
-            this.txtAdiabatic.Name = "txtAdiabatic";
-            this.txtAdiabatic.ReadOnly = true;
-            this.txtAdiabatic.Size = new System.Drawing.Size(157, 22);
-            this.txtAdiabatic.TabIndex = 17;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -376,14 +351,6 @@
             this.label9.Size = new System.Drawing.Size(158, 14);
             this.label9.TabIndex = 16;
             this.label9.Text = "Адиабатная постоянная =";
-            // 
-            // txtBCoeff
-            // 
-            this.txtBCoeff.Location = new System.Drawing.Point(123, 164);
-            this.txtBCoeff.Name = "txtBCoeff";
-            this.txtBCoeff.ReadOnly = true;
-            this.txtBCoeff.Size = new System.Drawing.Size(204, 22);
-            this.txtBCoeff.TabIndex = 19;
             // 
             // label10
             // 
@@ -394,14 +361,6 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Коэффициент а =";
             // 
-            // txtACoeff
-            // 
-            this.txtACoeff.Location = new System.Drawing.Point(123, 199);
-            this.txtACoeff.Name = "txtACoeff";
-            this.txtACoeff.ReadOnly = true;
-            this.txtACoeff.Size = new System.Drawing.Size(204, 22);
-            this.txtACoeff.TabIndex = 21;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -410,14 +369,6 @@
             this.label11.Size = new System.Drawing.Size(112, 14);
             this.label11.TabIndex = 20;
             this.label11.Text = "Коэффициент b =";
-            // 
-            // txtCp
-            // 
-            this.txtCp.Location = new System.Drawing.Point(188, 234);
-            this.txtCp.Name = "txtCp";
-            this.txtCp.ReadOnly = true;
-            this.txtCp.Size = new System.Drawing.Size(139, 22);
-            this.txtCp.TabIndex = 23;
             // 
             // label12
             // 
@@ -428,14 +379,6 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "Удельная теплоемкость Cp =";
             // 
-            // txtResultP1
-            // 
-            this.txtResultP1.Location = new System.Drawing.Point(102, 270);
-            this.txtResultP1.Name = "txtResultP1";
-            this.txtResultP1.ReadOnly = true;
-            this.txtResultP1.Size = new System.Drawing.Size(225, 22);
-            this.txtResultP1.TabIndex = 25;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -445,14 +388,6 @@
             this.label13.TabIndex = 24;
             this.label13.Text = "Давлени Р1 = ";
             // 
-            // txtResultP2
-            // 
-            this.txtResultP2.Location = new System.Drawing.Point(102, 308);
-            this.txtResultP2.Name = "txtResultP2";
-            this.txtResultP2.ReadOnly = true;
-            this.txtResultP2.Size = new System.Drawing.Size(225, 22);
-            this.txtResultP2.TabIndex = 27;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -461,14 +396,6 @@
             this.label14.Size = new System.Drawing.Size(90, 14);
             this.label14.TabIndex = 26;
             this.label14.Text = "Давлени Р2 = ";
-            // 
-            // txtResult
-            // 
-            this.txtResult.Location = new System.Drawing.Point(102, 369);
-            this.txtResult.Name = "txtResult";
-            this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(225, 22);
-            this.txtResult.TabIndex = 29;
             // 
             // label15
             // 
@@ -490,12 +417,161 @@
             // 
             // btnCalc
             // 
-            this.btnCalc.Location = new System.Drawing.Point(198, 341);
+            this.btnCalc.Location = new System.Drawing.Point(179, 346);
             this.btnCalc.Name = "btnCalc";
-            this.btnCalc.Size = new System.Drawing.Size(91, 45);
+            this.btnCalc.Size = new System.Drawing.Size(112, 45);
             this.btnCalc.TabIndex = 12;
             this.btnCalc.Text = "Получить результат";
             this.btnCalc.UseVisualStyleBackColor = true;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
+            // 
+            // edTemperature
+            // 
+            this.edTemperature.Location = new System.Drawing.Point(14, 132);
+            this.edTemperature.Maximum = new decimal(new int[] {
+            73,
+            0,
+            0,
+            0});
+            this.edTemperature.Minimum = new decimal(new int[] {
+            73,
+            0,
+            0,
+            -2147483648});
+            this.edTemperature.Name = "edTemperature";
+            this.edTemperature.Size = new System.Drawing.Size(277, 22);
+            this.edTemperature.TabIndex = 13;
+            // 
+            // txtGasVolume
+            // 
+            this.txtGasVolume.DecimalPlaces = 4;
+            this.txtGasVolume.Location = new System.Drawing.Point(14, 194);
+            this.txtGasVolume.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtGasVolume.Name = "txtGasVolume";
+            this.txtGasVolume.Size = new System.Drawing.Size(277, 22);
+            this.txtGasVolume.TabIndex = 14;
+            // 
+            // txtP2
+            // 
+            this.txtP2.DecimalPlaces = 4;
+            this.txtP2.Location = new System.Drawing.Point(14, 309);
+            this.txtP2.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtP2.Name = "txtP2";
+            this.txtP2.Size = new System.Drawing.Size(277, 22);
+            this.txtP2.TabIndex = 15;
+            // 
+            // txtP1
+            // 
+            this.txtP1.DecimalPlaces = 4;
+            this.txtP1.Location = new System.Drawing.Point(14, 246);
+            this.txtP1.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtP1.Name = "txtP1";
+            this.txtP1.Size = new System.Drawing.Size(277, 22);
+            this.txtP1.TabIndex = 16;
+            // 
+            // txtACoeff
+            // 
+            this.txtACoeff.DecimalPlaces = 4;
+            this.txtACoeff.Location = new System.Drawing.Point(123, 165);
+            this.txtACoeff.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtACoeff.Name = "txtACoeff";
+            this.txtACoeff.ReadOnly = true;
+            this.txtACoeff.Size = new System.Drawing.Size(204, 22);
+            this.txtACoeff.TabIndex = 17;
+            // 
+            // txtBCoeff
+            // 
+            this.txtBCoeff.DecimalPlaces = 4;
+            this.txtBCoeff.Location = new System.Drawing.Point(123, 200);
+            this.txtBCoeff.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtBCoeff.Name = "txtBCoeff";
+            this.txtBCoeff.ReadOnly = true;
+            this.txtBCoeff.Size = new System.Drawing.Size(204, 22);
+            this.txtBCoeff.TabIndex = 31;
+            // 
+            // txtCp
+            // 
+            this.txtCp.DecimalPlaces = 4;
+            this.txtCp.Location = new System.Drawing.Point(188, 235);
+            this.txtCp.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtCp.Name = "txtCp";
+            this.txtCp.ReadOnly = true;
+            this.txtCp.Size = new System.Drawing.Size(139, 22);
+            this.txtCp.TabIndex = 32;
+            // 
+            // txtResultP1
+            // 
+            this.txtResultP1.DecimalPlaces = 4;
+            this.txtResultP1.Location = new System.Drawing.Point(93, 269);
+            this.txtResultP1.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtResultP1.Name = "txtResultP1";
+            this.txtResultP1.ReadOnly = true;
+            this.txtResultP1.Size = new System.Drawing.Size(234, 22);
+            this.txtResultP1.TabIndex = 33;
+            // 
+            // txtResultP2
+            // 
+            this.txtResultP2.DecimalPlaces = 4;
+            this.txtResultP2.Location = new System.Drawing.Point(93, 307);
+            this.txtResultP2.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtResultP2.Name = "txtResultP2";
+            this.txtResultP2.ReadOnly = true;
+            this.txtResultP2.Size = new System.Drawing.Size(234, 22);
+            this.txtResultP2.TabIndex = 34;
+            // 
+            // txtResult
+            // 
+            this.txtResult.Location = new System.Drawing.Point(93, 369);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.ReadOnly = true;
+            this.txtResult.Size = new System.Drawing.Size(234, 22);
+            this.txtResult.TabIndex = 29;
+            // 
+            // txtAdiabatic
+            // 
+            this.txtAdiabatic.DecimalPlaces = 4;
+            this.txtAdiabatic.Location = new System.Drawing.Point(170, 128);
+            this.txtAdiabatic.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.txtAdiabatic.Name = "txtAdiabatic";
+            this.txtAdiabatic.ReadOnly = true;
+            this.txtAdiabatic.Size = new System.Drawing.Size(157, 22);
+            this.txtAdiabatic.TabIndex = 35;
             // 
             // MainForm
             // 
@@ -519,6 +595,16 @@
             this.grpInput.PerformLayout();
             this.grpOutput.ResumeLayout(false);
             this.grpOutput.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edTemperature)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGasVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtACoeff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBCoeff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtResultP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtResultP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAdiabatic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,13 +622,9 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox grpInput;
         private System.Windows.Forms.GroupBox grpOutput;
-        private System.Windows.Forms.TextBox txtP2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtP1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtGasVolume;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTemperature;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbGasType;
@@ -550,25 +632,29 @@
         private System.Windows.Forms.RadioButton rbDiff;
         private System.Windows.Forms.TextBox txtGasType;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtACoeff;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtBCoeff;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtAdiabatic;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtTemperatureResult;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtFormula;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtResultP2;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtResultP1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtCp;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnCalc;
+        private System.Windows.Forms.NumericUpDown edTemperature;
+        private System.Windows.Forms.NumericUpDown txtP1;
+        private System.Windows.Forms.NumericUpDown txtP2;
+        private System.Windows.Forms.NumericUpDown txtGasVolume;
+        private System.Windows.Forms.NumericUpDown txtBCoeff;
+        private System.Windows.Forms.NumericUpDown txtACoeff;
+        private System.Windows.Forms.NumericUpDown txtCp;
+        private System.Windows.Forms.NumericUpDown txtResultP2;
+        private System.Windows.Forms.NumericUpDown txtResultP1;
+        private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.NumericUpDown txtAdiabatic;
     }
 }

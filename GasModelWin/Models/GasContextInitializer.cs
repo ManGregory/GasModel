@@ -2,7 +2,7 @@
 
 namespace GasModelWin.Models
 {
-    class GasContextInitializer : DropCreateDatabaseAlways<GasContext>
+    class GasContextInitializer : DropCreateDatabaseIfModelChanges<GasContext>
     {
         protected override void Seed(GasContext context)
         {
