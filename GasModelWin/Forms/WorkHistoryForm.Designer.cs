@@ -39,7 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbGasType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.edDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.miFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +50,7 @@
             this.dgvResults = new System.Windows.Forms.DataGridView();
             this.cmbUser = new System.Windows.Forms.ComboBox();
             this.cmbFormula = new System.Windows.Forms.ComboBox();
+            this.edDate = new System.Windows.Forms.MaskedTextBox();
             this.pnlFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edP1)).BeginInit();
@@ -61,6 +61,7 @@
             // 
             // pnlFilter
             // 
+            this.pnlFilter.Controls.Add(this.edDate);
             this.pnlFilter.Controls.Add(this.cmbFormula);
             this.pnlFilter.Controls.Add(this.cmbUser);
             this.pnlFilter.Controls.Add(this.btnChart);
@@ -73,7 +74,6 @@
             this.pnlFilter.Controls.Add(this.label3);
             this.pnlFilter.Controls.Add(this.cmbGasType);
             this.pnlFilter.Controls.Add(this.label2);
-            this.pnlFilter.Controls.Add(this.edDate);
             this.pnlFilter.Controls.Add(this.label1);
             this.pnlFilter.Controls.Add(this.msMain);
             this.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top;
@@ -99,6 +99,7 @@
             this.btnFilter.TabIndex = 18;
             this.btnFilter.Text = "Найти";
             this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // edP2
             // 
@@ -178,13 +179,6 @@
             this.label2.Size = new System.Drawing.Size(85, 14);
             this.label2.TabIndex = 3;
             this.label2.Text = "Пользователь";
-            // 
-            // edDate
-            // 
-            this.edDate.Location = new System.Drawing.Point(139, 28);
-            this.edDate.Name = "edDate";
-            this.edDate.Size = new System.Drawing.Size(184, 22);
-            this.edDate.TabIndex = 2;
             // 
             // label1
             // 
@@ -281,6 +275,15 @@
             this.cmbFormula.Size = new System.Drawing.Size(184, 22);
             this.cmbFormula.TabIndex = 21;
             // 
+            // edDate
+            // 
+            this.edDate.Location = new System.Drawing.Point(139, 29);
+            this.edDate.Mask = "00/00/0000";
+            this.edDate.Name = "edDate";
+            this.edDate.Size = new System.Drawing.Size(184, 22);
+            this.edDate.TabIndex = 22;
+            this.edDate.ValidatingType = typeof(System.DateTime);
+            // 
             // WorkHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -323,7 +326,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbGasType;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker edDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.NumericUpDown edP2;
@@ -332,5 +334,6 @@
         private System.Windows.Forms.Button btnChart;
         private System.Windows.Forms.ComboBox cmbFormula;
         private System.Windows.Forms.ComboBox cmbUser;
+        private System.Windows.Forms.MaskedTextBox edDate;
     }
 }

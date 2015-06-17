@@ -385,18 +385,18 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(6, 273);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 14);
+            this.label13.Size = new System.Drawing.Size(97, 14);
             this.label13.TabIndex = 24;
-            this.label13.Text = "Давлени Р1 = ";
+            this.label13.Text = "Давление Р1 = ";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(6, 311);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(90, 14);
+            this.label14.Size = new System.Drawing.Size(97, 14);
             this.label14.TabIndex = 26;
-            this.label14.Text = "Давлени Р2 = ";
+            this.label14.Text = "Давление Р2 = ";
             // 
             // label15
             // 
@@ -527,7 +527,7 @@
             // txtResultP1
             // 
             this.txtResultP1.DecimalPlaces = 4;
-            this.txtResultP1.Location = new System.Drawing.Point(93, 269);
+            this.txtResultP1.Location = new System.Drawing.Point(109, 269);
             this.txtResultP1.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -535,13 +535,13 @@
             0});
             this.txtResultP1.Name = "txtResultP1";
             this.txtResultP1.ReadOnly = true;
-            this.txtResultP1.Size = new System.Drawing.Size(234, 22);
+            this.txtResultP1.Size = new System.Drawing.Size(218, 22);
             this.txtResultP1.TabIndex = 33;
             // 
             // txtResultP2
             // 
             this.txtResultP2.DecimalPlaces = 4;
-            this.txtResultP2.Location = new System.Drawing.Point(93, 307);
+            this.txtResultP2.Location = new System.Drawing.Point(109, 307);
             this.txtResultP2.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -549,7 +549,7 @@
             0});
             this.txtResultP2.Name = "txtResultP2";
             this.txtResultP2.ReadOnly = true;
-            this.txtResultP2.Size = new System.Drawing.Size(234, 22);
+            this.txtResultP2.Size = new System.Drawing.Size(218, 22);
             this.txtResultP2.TabIndex = 34;
             // 
             // txtResult
