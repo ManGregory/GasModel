@@ -72,6 +72,12 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PredictionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PredictionForm.Designer.cs">
+      <DependentUpon>PredictionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WorkHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,7 @@
       <DependentUpon>WorkHistoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\Current.cs" />
+    <Compile Include="Helper\DbHelper.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdiabaticConstant.cs" />
     <Compile Include="Models\Gas.cs" />
@@ -99,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PredictionForm.resx">
+      <DependentUpon>PredictionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WorkHistoryForm.resx">
       <DependentUpon>WorkHistoryForm.cs</DependentUpon>

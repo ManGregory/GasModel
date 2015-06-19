@@ -72,6 +72,7 @@
             this.txtResultP2 = new System.Windows.Forms.NumericUpDown();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.txtAdiabatic = new System.Windows.Forms.NumericUpDown();
+            this.btnPrediction = new System.Windows.Forms.Button();
             this.msMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -165,6 +166,7 @@
             // 
             // grpInput
             // 
+            this.grpInput.Controls.Add(this.btnPrediction);
             this.grpInput.Controls.Add(this.txtP1);
             this.grpInput.Controls.Add(this.txtP2);
             this.grpInput.Controls.Add(this.txtGasVolume);
@@ -418,7 +420,7 @@
             // 
             // btnCalc
             // 
-            this.btnCalc.Location = new System.Drawing.Point(179, 346);
+            this.btnCalc.Location = new System.Drawing.Point(61, 346);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(112, 45);
             this.btnCalc.TabIndex = 12;
@@ -448,8 +450,8 @@
             this.txtGasVolume.DecimalPlaces = 4;
             this.txtGasVolume.Location = new System.Drawing.Point(14, 194);
             this.txtGasVolume.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            276447232,
+            23283,
             0,
             0});
             this.txtGasVolume.Name = "txtGasVolume";
@@ -461,8 +463,8 @@
             this.txtP2.DecimalPlaces = 4;
             this.txtP2.Location = new System.Drawing.Point(14, 309);
             this.txtP2.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            276447232,
+            23283,
             0,
             0});
             this.txtP2.Name = "txtP2";
@@ -474,8 +476,8 @@
             this.txtP1.DecimalPlaces = 4;
             this.txtP1.Location = new System.Drawing.Point(14, 246);
             this.txtP1.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            276447232,
+            23283,
             0,
             0});
             this.txtP1.Name = "txtP1";
@@ -485,6 +487,7 @@
             // txtACoeff
             // 
             this.txtACoeff.DecimalPlaces = 4;
+            this.txtACoeff.Enabled = false;
             this.txtACoeff.Location = new System.Drawing.Point(123, 165);
             this.txtACoeff.Maximum = new decimal(new int[] {
             100000,
@@ -499,6 +502,7 @@
             // txtBCoeff
             // 
             this.txtBCoeff.DecimalPlaces = 4;
+            this.txtBCoeff.Enabled = false;
             this.txtBCoeff.Location = new System.Drawing.Point(123, 200);
             this.txtBCoeff.Maximum = new decimal(new int[] {
             100000,
@@ -513,6 +517,7 @@
             // txtCp
             // 
             this.txtCp.DecimalPlaces = 4;
+            this.txtCp.Enabled = false;
             this.txtCp.Location = new System.Drawing.Point(188, 235);
             this.txtCp.Maximum = new decimal(new int[] {
             100000,
@@ -527,10 +532,11 @@
             // txtResultP1
             // 
             this.txtResultP1.DecimalPlaces = 4;
+            this.txtResultP1.Enabled = false;
             this.txtResultP1.Location = new System.Drawing.Point(109, 269);
             this.txtResultP1.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            276447232,
+            23283,
             0,
             0});
             this.txtResultP1.Name = "txtResultP1";
@@ -541,10 +547,11 @@
             // txtResultP2
             // 
             this.txtResultP2.DecimalPlaces = 4;
+            this.txtResultP2.Enabled = false;
             this.txtResultP2.Location = new System.Drawing.Point(109, 307);
             this.txtResultP2.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            276447232,
+            23283,
             0,
             0});
             this.txtResultP2.Name = "txtResultP2";
@@ -563,6 +570,7 @@
             // txtAdiabatic
             // 
             this.txtAdiabatic.DecimalPlaces = 4;
+            this.txtAdiabatic.Enabled = false;
             this.txtAdiabatic.Location = new System.Drawing.Point(170, 128);
             this.txtAdiabatic.Maximum = new decimal(new int[] {
             100000,
@@ -573,6 +581,16 @@
             this.txtAdiabatic.ReadOnly = true;
             this.txtAdiabatic.Size = new System.Drawing.Size(157, 22);
             this.txtAdiabatic.TabIndex = 35;
+            // 
+            // btnPrediction
+            // 
+            this.btnPrediction.Location = new System.Drawing.Point(179, 346);
+            this.btnPrediction.Name = "btnPrediction";
+            this.btnPrediction.Size = new System.Drawing.Size(112, 45);
+            this.btnPrediction.TabIndex = 17;
+            this.btnPrediction.Text = "Прогноз\r\n";
+            this.btnPrediction.UseVisualStyleBackColor = true;
+            this.btnPrediction.Click += new System.EventHandler(this.btnPrediction_Click);
             // 
             // MainForm
             // 
@@ -657,5 +675,6 @@
         private System.Windows.Forms.NumericUpDown txtResultP1;
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.NumericUpDown txtAdiabatic;
+        private System.Windows.Forms.Button btnPrediction;
     }
 }

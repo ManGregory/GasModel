@@ -482,6 +482,10 @@ namespace GasModelWin.Models
                 new GasTemperature {GasId = 3, Cp = 1.8666m, Temperature = 72},
                 new GasTemperature {GasId = 3, Cp = 1.8696m, Temperature = 73}
             });
+            foreach (var g in context.GasTemperatures.Local)
+            {
+                g.Cp *= 1000;
+            }
             context.SaveChanges();
         }
     }

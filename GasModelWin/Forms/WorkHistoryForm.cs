@@ -58,7 +58,13 @@ namespace GasModelWin.Forms
                             adiabatic.FirstOrDefault(a => a.GasId == s.GasId).K,
                             vander.FirstOrDefault(v => v.GasId == s.GasId).A,
                             vander.FirstOrDefault(v => v.GasId == s.GasId).B,
-                            temperatures.FirstOrDefault(t => t.GasId == s.GasId && t.Temperature == s.GasTemperature).Cp
+                            temperatures.FirstOrDefault(t => t.GasId == s.GasId && t.Temperature == s.GasTemperature).Cp,
+                            s.ModelingResult,
+                            s.Radius,
+                            s.SolarRadiation,
+                            s.TubeWeight,
+                            s.HeatQuantity,
+                            s.MeltingTime
                         });
                 if (date != null)
                 {
@@ -93,6 +99,12 @@ namespace GasModelWin.Forms
                 dgvResults.Columns["GasVolume"].HeaderText = "Объем газа";
                 dgvResults.Columns["EnvironmentPressure1"].HeaderText = "P1";
                 dgvResults.Columns["EnvironmentPressure2"].HeaderText = "P2";
+                dgvResults.Columns["ModelingResult"].HeaderText = "T2-T1";
+                dgvResults.Columns["Radius"].HeaderText = "r";
+                dgvResults.Columns["SolarRadiation"].HeaderText = "N";
+                dgvResults.Columns["TubeWeight"].HeaderText = "m";
+                dgvResults.Columns["HeatQuantity"].HeaderText = "Q";
+                dgvResults.Columns["MeltingTime"].HeaderText = "t";
                 foreach (DataGridViewColumn column in dgvResults.Columns)
                 {
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;

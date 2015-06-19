@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GasModelWin.Models
 {
-    class Result
+    public class Result
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -45,6 +45,16 @@ namespace GasModelWin.Models
         [Required]
         public decimal ModelingResult { get; set; }
 
+        public decimal Radius { get; set; }
+
+        public decimal SolarRadiation { get; set; }
+
+        public decimal TubeWeight { get; set; }
+
+        public decimal HeatQuantity { get; set; }
+
+        public decimal MeltingTime { get; set; }
+
         public const decimal R = 8.3144621m;
 
         public static decimal Calc(Result result, decimal cp, decimal a, decimal b,
@@ -53,6 +63,21 @@ namespace GasModelWin.Models
             return result.ModelingType == 1
                 ? ((R*result.GasTemperature*(b/(result.GasVolume - b))) - ((2*a)/result.GasVolume))/((cp/k) + R)
                 : (((p2 - p1)*((2*a)/(R*result.GasTemperature)) - b)/cp);
+        }
+
+        public static decimal GetTubeWeight(Result result)
+        {
+            return (decimal)((4 / 3) * Math.PI) * (result.Radius*result.Radius*result.Radius* 999.8m);
+        }
+
+        public static decimal GetHeatQuantity(Result result)
+        {
+            return result.TubeWeight*(2060*(result.GasTemperature + result.ModelingResult) + 330000);
+        }
+
+        public static decimal GetMeltingTime(Result result)
+        {
+            return result.HeatQuantity/(result.SolarRadiation*result.Radius);
         }
     }
 }

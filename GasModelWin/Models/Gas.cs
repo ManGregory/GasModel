@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GasModelWin.Models
 {
-    class Gas
+    public class Gas
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

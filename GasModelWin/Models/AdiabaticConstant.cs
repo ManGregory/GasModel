@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GasModelWin.Models
 {
-    class AdiabaticConstant
+    public class AdiabaticConstant
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

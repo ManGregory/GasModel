@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Entity;
-using System.Data.Entity.Validation;
-using System.Drawing;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GasModelWin.Helper;
 using GasModelWin.Models;
@@ -18,6 +10,7 @@ namespace GasModelWin.Forms
     public partial class MainForm : Form
     {
         private readonly LoginForm _loginForm;
+        private Result _result;
 
         public MainForm(LoginForm loginForm)
         {
@@ -26,6 +19,7 @@ namespace GasModelWin.Forms
             Closed += (sender, args) => _loginForm.Close();
             rbDiff.Checked = true;
             LoadGases();
+            btnPrediction.Enabled = false;
         }
 
         private void LoadGases()
@@ -80,31 +74,11 @@ namespace GasModelWin.Forms
                 using (var db = new GasContext())
                 {
                     db.Results.Add(result);
-                    Save(db);
+                    DbHelper.Save(db);
                 }
+                _result = result;
                 txtResult.Text = result.ModelingResult.ToString("F");
-            }
-        }
-
-        private void Save(GasContext db)
-        {
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbEntityValidationException e)
-            {
-                foreach (var eve in e.EntityValidationErrors)
-                {
-                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                            ve.PropertyName, ve.ErrorMessage);
-                    }
-                }
-                throw;
+                btnPrediction.Enabled = _result != null;
             }
         }
 
@@ -160,6 +134,14 @@ namespace GasModelWin.Forms
             using (var workHistoryForm = new WorkHistoryForm())
             {
                 workHistoryForm.ShowDialog(this);
+            }
+        }
+
+        private void btnPrediction_Click(object sender, EventArgs e)
+        {
+            using (var predictionForm = new PredictionForm(_result))
+            {
+                predictionForm.ShowDialog(this);
             }
         }
     }

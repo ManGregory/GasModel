@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GasModelWin.Models
 {
-    class GasContext : DbContext
+    public class GasContext : DbContext
     {
         public DbSet<Gas> Gases { get; set; }
         public DbSet<GasTemperature> GasTemperatures { get; set; }

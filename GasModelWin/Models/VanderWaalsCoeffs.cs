@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GasModelWin.Models
 {
-    class VanderWaalsCoeffs
+    public class VanderWaalsCoeffs
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
