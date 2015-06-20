@@ -215,6 +215,7 @@
             this.miDoc.Name = "miDoc";
             this.miDoc.Size = new System.Drawing.Size(202, 22);
             this.miDoc.Text = "Создать документацию";
+            this.miDoc.Click += new System.EventHandler(this.miDoc_Click);
             // 
             // miHelp
             // 

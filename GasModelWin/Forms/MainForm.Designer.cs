@@ -126,6 +126,7 @@
             this.miDoc.Name = "miDoc";
             this.miDoc.Size = new System.Drawing.Size(165, 22);
             this.miDoc.Text = "Документация";
+            this.miDoc.Visible = false;
             // 
             // miHelp
             // 

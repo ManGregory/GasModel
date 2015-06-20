@@ -1,9 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
+using GasModelWin.Helper;
 using GasModelWin.Models;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using ZedGraph;
+using Font = iTextSharp.text.Font;
 
 namespace GasModelWin.Forms
 {
@@ -126,6 +135,20 @@ namespace GasModelWin.Forms
                 cmbFormula.SelectedIndex > 0 ? cmbFormula.SelectedItem.ToString() : null,
                 edP1.Value != 0 ? edP1.Value : (decimal?)null,
                 edP2.Value != 0 ? edP2.Value : (decimal?)null);
+        }
+
+        private void miDoc_Click(object sender, EventArgs e)
+        {
+            using (var sfd = new SaveFileDialog())
+            {
+                sfd.DefaultExt = "pdf";
+                sfd.Filter = "PDF files | *.pdf";
+                if (sfd.ShowDialog(this) == DialogResult.OK)
+                {
+                    ExportHelper.SavePdf(dgvResults, sfd.FileName);
+                    Process.Start(sfd.FileName);
+                }
+            }
         }
     }
 }
