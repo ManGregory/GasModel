@@ -21,9 +21,13 @@ namespace GasModelWin.Forms
         {
             InitializeComponent();
             _result = result;
+            // загрузка результата
             LoadResult();
         }
 
+        /// <summary>
+        /// Загрузка результатов моделирования
+        /// </summary>
         private void LoadResult()
         {
             edRadius.Value = _result.Radius;
@@ -38,13 +42,22 @@ namespace GasModelWin.Forms
             Close();
         }
 
+        /// <summary>
+        /// Получение результатов прогноза
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreatePrediction_Click(object sender, EventArgs e)
         {
             _result.Radius = edRadius.Value;
             _result.SolarRadiation = edSolarRadiation.Value;
+            // масса лединой пробки
             _result.TubeWeight = Result.GetTubeWeight(_result);
+            // количество теплоты
             _result.HeatQuantity = Result.GetHeatQuantity(_result);
+            // время таяния
             _result.MeltingTime = Result.GetMeltingTime(_result);
+            // сохранение результатов в базу
             using (var db = new GasContext())
             {
                 db.Results.Attach(_result);
@@ -54,6 +67,9 @@ namespace GasModelWin.Forms
             FillResult();
         }
 
+        /// <summary>
+        /// Заполнение результатов в базу
+        /// </summary>
         private void FillResult()
         {
             edTubeWeight.Value = _result.TubeWeight;

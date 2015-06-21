@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace GasModelWin.Models
 {
+    /// <summary>
+    /// Логины пользователей
+    /// </summary>
     public class UserLogins
     {
         [Key]

@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Entity;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GasModelWin.Helper;
 using GasModelWin.Models;
@@ -19,6 +12,7 @@ namespace GasModelWin.Forms
         public LoginForm()
         {
             InitializeComponent();
+            // установка инициализатора базы
             Database.SetInitializer(new GasContextInitializer());
         }
 

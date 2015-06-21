@@ -4,6 +4,10 @@ namespace GasModelWin.Models
 {
     class GasContextInitializer : DropCreateDatabaseIfModelChanges<GasContext>
     {
+        /// <summary>
+        /// Инициализация базы 
+        /// </summary>
+        /// <param name="context"></param>
         protected override void Seed(GasContext context)
         {
             base.Seed(context);

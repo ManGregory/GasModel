@@ -12,6 +12,12 @@ namespace GasModelWin.Helper
 {
     public static class ExportHelper
     {
+        /// <summary>
+        /// Получение ширины колонок в сантиметрах с сохранением пропорций
+        /// </summary>
+        /// <param name="dgv"></param>
+        /// <param name="totalWidth"></param>
+        /// <returns></returns>
         private static float[] GetColumnWidths(DataGridView dgv, float totalWidth)
         {
             return (from DataGridViewColumn column in dgv.Columns
@@ -19,6 +25,11 @@ namespace GasModelWin.Helper
                 .ToArray();
         }
 
+        /// <summary>
+        /// Сохранение таблицы в pdf
+        /// </summary>
+        /// <param name="dgvResults"></param>
+        /// <param name="fileName"></param>
         public static void SavePdf(DataGridView dgvResults, string fileName)
         {
             PdfPTable pdfTable = new PdfPTable(dgvResults.ColumnCount);

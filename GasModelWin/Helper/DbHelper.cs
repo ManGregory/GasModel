@@ -6,6 +6,10 @@ namespace GasModelWin.Helper
 {
     public static class DbHelper
     {
+        /// <summary>
+        /// Сохранение информации в базу
+        /// </summary>
+        /// <param name="db"></param>
         public static void Save(GasContext db)
         {
             try

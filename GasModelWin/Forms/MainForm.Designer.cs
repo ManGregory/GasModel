@@ -219,7 +219,6 @@
             this.grpOutput.TabIndex = 1;
             this.grpOutput.TabStop = false;
             this.grpOutput.Text = "Результаты";
-            this.grpOutput.Enter += new System.EventHandler(this.grpOutput_Enter);
             // 
             // rbDiff
             // 

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace GasModelWin.Models
 {
+    /// <summary>
+    /// Коэффициенты Ван-дер-Ваальса
+    /// </summary>
     public class VanderWaalsCoeffs
     {
         [Key]

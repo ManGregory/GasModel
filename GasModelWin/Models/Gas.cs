@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace GasModelWin.Models
 {
+    /// <summary>
+    /// Тип газа
+    /// </summary>
     public class Gas
     {
         [Key]

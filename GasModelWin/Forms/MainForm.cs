@@ -10,6 +10,9 @@ namespace GasModelWin.Forms
     public partial class MainForm : Form
     {
         private readonly LoginForm _loginForm;
+        /// <summary>
+        /// Результат моделирования
+        /// </summary>
         private Result _result;
 
         public MainForm(LoginForm loginForm)
@@ -22,6 +25,9 @@ namespace GasModelWin.Forms
             btnPrediction.Enabled = false;
         }
 
+        /// <summary>
+        /// Загрузка типов газа в выпадающий список
+        /// </summary>
         private void LoadGases()
         {
             using (var db = new GasContext())
@@ -30,11 +36,6 @@ namespace GasModelWin.Forms
                 cmbGasType.DataSource = null;
                 cmbGasType.DataSource = db.Gases.Local;
             }
-        }
-
-        private void grpOutput_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void rbDiff_CheckedChanged(object sender, EventArgs e)
@@ -56,13 +57,28 @@ namespace GasModelWin.Forms
             Close();
         }
 
+        /// <summary>
+        /// Моделирование
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCalc_Click(object sender, EventArgs e)
         {
+            // проверка ввода
+            var mes = VerifyInput();
+            if (!string.IsNullOrWhiteSpace(mes))
+            {
+                MessageBox.Show(mes);
+                return;
+            }
             var gas = cmbGasType.SelectedItem as Gas;
             if (gas != null)
             {
+                // заполнение информации о газе
                 FillGasInfo(gas);
+                // получение начальных результатов моделирования
                 var result = CreateResult(gas);
+                // моделирования
                 result.ModelingResult = Result.Calc(
                     result,
                     txtCp.Value,
@@ -71,15 +87,34 @@ namespace GasModelWin.Forms
                     txtResultP1.Value,
                     txtResultP2.Value,
                     txtAdiabatic.Value);
+                // сохранение результата в базу
                 using (var db = new GasContext())
                 {
                     db.Results.Add(result);
                     DbHelper.Save(db);
                 }
                 _result = result;
-                txtResult.Text = result.ModelingResult.ToString("F");
+                txtResult.Text = result.ModelingResult.ToString("F4");
                 btnPrediction.Enabled = _result != null;
             }
+        }
+
+        /// <summary>
+        /// Проверка введенных данных
+        /// </summary>
+        /// <returns></returns>
+        private string VerifyInput()
+        {
+            var error = string.Empty;
+            if (edTemperature.Value == 0 && rbIntegr.Checked)
+            {
+                error += "При интегральном эффекте Джоуля-Томпсона значение температуры должно быть отличным от нуля";
+            }
+            if (txtGasVolume.Value == 0 && rbDiff.Checked)
+            {
+                error += "При дифференциальном эффекте Джоуля-Томпсона значение объема газа должно быть отличным от нуля";
+            }
+            return error;
         }
 
         private Result CreateResult(Gas gas)
@@ -97,6 +132,10 @@ namespace GasModelWin.Forms
             };
         }
 
+        /// <summary>
+        /// Заполнение информации о типе газа
+        /// </summary>
+        /// <param name="gas"></param>
         private void FillGasInfo(Gas gas)
         {
             using (var db = new GasContext())

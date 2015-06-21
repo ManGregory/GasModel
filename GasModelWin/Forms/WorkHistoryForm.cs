@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using GasModelWin.Helper;
 using GasModelWin.Models;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using ZedGraph;
-using Font = iTextSharp.text.Font;
 
 namespace GasModelWin.Forms
 {
@@ -25,10 +18,15 @@ namespace GasModelWin.Forms
             InitializeComponent();
             pnlChart.Controls.Add(zedGraph);
             zedGraph.Dock = DockStyle.Fill;
+            // заполнение фильтров
             FillFilters();
+            // загрузка данных
             LoadData();
         }
 
+        /// <summary>
+        /// Загрузка значений фильтров
+        /// </summary>
         private void FillFilters()
         {
             cmbFormula.DataSource = new object[] {"", "Интегральная", "Дифференциальная"};
@@ -43,6 +41,15 @@ namespace GasModelWin.Forms
             }            
         }
 
+        /// <summary>
+        /// Загрузка данных с учетом фильтров
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="user"></param>
+        /// <param name="gas"></param>
+        /// <param name="modelingType"></param>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
         private void LoadData(DateTime? date = null, User user = null, Gas gas = null,
             string modelingType = null, decimal? p1 = null, decimal? p2 = null)
         {
@@ -75,6 +82,7 @@ namespace GasModelWin.Forms
                             s.HeatQuantity,
                             s.MeltingTime
                         });
+                // применение фильтров, если есть
                 if (date != null)
                 {
                     results = results.Where(r => r.Date.Date == date);
@@ -100,6 +108,7 @@ namespace GasModelWin.Forms
                     results = results.Where(r => r.EnvironmentPressure2 == p2);
                 }
                 dgvResults.DataSource = results.ToList();
+                // названия колонок в таблице
                 dgvResults.Columns["Date"].HeaderText = "Дата";
                 dgvResults.Columns["UserName"].HeaderText = "Пользователь";
                 dgvResults.Columns["ModelingType"].HeaderText = "Модель";
@@ -114,6 +123,7 @@ namespace GasModelWin.Forms
                 dgvResults.Columns["TubeWeight"].HeaderText = "m";
                 dgvResults.Columns["HeatQuantity"].HeaderText = "Q";
                 dgvResults.Columns["MeltingTime"].HeaderText = "t";
+                // выравнивание столбцов по содержимому
                 foreach (DataGridViewColumn column in dgvResults.Columns)
                 {
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -137,6 +147,11 @@ namespace GasModelWin.Forms
                 edP2.Value != 0 ? edP2.Value : (decimal?)null);
         }
 
+        /// <summary>
+        /// Сохранение таблицы в pdf файл
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void miDoc_Click(object sender, EventArgs e)
         {
             using (var sfd = new SaveFileDialog())
